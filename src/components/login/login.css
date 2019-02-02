@@ -12,7 +12,11 @@
 }
 
 .login-form>div {
-    padding: 1rem;
+    padding: .6rem 1rem;
+}
+
+.login-form>div>div {
+    width: 100%;
 }
 
 .login-form fieldset {
@@ -22,12 +26,13 @@
 .login-form label[data-shrink="true"] {
     color: #FE5151 !important;
 }
+
 .login-form button {
     background-color: #FE5151;
     color: #fff;
     font-family: 'Poppins' ,sans-serif !important;
     width: -webkit-fill-available;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     height: 60px;
     border-radius: 0;
     text-transform: none;
@@ -36,4 +41,36 @@
 .login-form button:hover {
     background-color: #FE5151;
     opacity: .9;
+}
+@media only screen and (max-width: 1000px) {
+    .login {
+        width: 40%;
+    }
+    .login-form button {
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .login {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .login {
+        width: 70%;
+        margin-top: 150px;
+    }
+    .login-form>div {
+        padding: .6rem 1rem;
+    }
+    .login-form button {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .login-form button {
+        margin-top: 1.5rem;
+    }
 }

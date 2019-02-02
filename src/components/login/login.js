@@ -9,6 +9,12 @@ class Login extends Component {
         password: ''
     }
 
+    postLogin = (e) => {
+        e.preventDefault();
+        const {email, password} = this.state;
+        console.log(email, password);
+    }
+
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
@@ -24,27 +30,28 @@ class Login extends Component {
             <div>
                 <Navbar/>
                 <div className="login">
-                    <form className="login-form">
-                    <div>
-                        <TextField
-                            label="email address"
-                            className=""
-                            value={this.state.email}
-                            onChange={this.handleChange('email')}
-                            margin="normal"
-                            variant="outlined"
-                        /><br/><br/>
-                        <TextField
-                            label="Password"
-                            type="password"
-                            className=""
-                            value={this.state.password}
-                            onChange={this.handleChange('password')}
-                            margin="normal"
-                            variant="outlined"
-                        /><br/>
-                    </div>
-                        <Button>Login</Button>
+                    <form className="login-form" onSubmit={this.postLogin}>
+                        <div>
+                            <TextField
+                                label="email address"
+                                type="email"
+                                className=""
+                                value={this.state.email}
+                                onChange={this.handleChange('email')}
+                                margin="normal"
+                                variant="outlined"
+                            /><br/>
+                            <TextField
+                                label="Password"
+                                type="password"
+                                className=""
+                                value={this.state.password}
+                                onChange={this.handleChange('password')}
+                                margin="normal"
+                                variant="outlined"
+                            /><br/>
+                        </div>
+                        <Button type="submit">Login</Button>
                     </form>
                 </div>
             </div>

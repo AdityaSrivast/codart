@@ -30,7 +30,6 @@ input, label {
   font-family: 'Poppins' ,sans-serif !important;
 }
 
-
 body {
   background: url('./images/background1.png');
 }
@@ -42,4 +41,19 @@ body {
 }
 .navbar img {
   margin-right: 3rem;
+  height: 60px;
+}
+
+@media only screen and (max-width: 500px) {
+  html, body {
+    font-size: 14px;
+  }
+  .navbar img {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .navbar img {
+    height: 50px;
+  }
 }
