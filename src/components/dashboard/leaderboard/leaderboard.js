@@ -9,7 +9,7 @@ class Leaderboard extends Component {
         return(
             <div className="leaderboard-section">
                 <Grid container>
-                    <Grid item lg={9}>
+                    <Grid item lg={9} xs={8}>
                     <p className="heading">Leaderboard</p>
                     <TopCard/>
                     <div className="leaderboard-list">

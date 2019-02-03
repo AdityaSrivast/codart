@@ -26,7 +26,7 @@ html, body {
   font-family: 'Poppins' ,sans-serif !important;
   color: #303030;
 }
-input, label {
+input, label, option, select {
   font-family: 'Poppins' ,sans-serif !important;
 }
 
