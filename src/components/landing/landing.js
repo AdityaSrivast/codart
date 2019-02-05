@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Navbar from '../common/navbar/navbar';
-import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary} from '@material-ui/core';
-
+import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Button} from '@material-ui/core';
+import {NavLink} from 'react-router-dom';
 // import Footer from '../common/footer/footer';
 
 import AddOutlined from '../../images/add-outlined.png';
@@ -38,6 +38,9 @@ Here, the rules are different, but the game is very simple. The problem statemen
 Remember, there are some irresistible prizes on the line here. So, practice your throws while you scan through your favourite algorithms and libraries, and brace yourselves for the most fun coding event of the year, <b>Codart</b>.
                         </p>
                     </div>
+                    <NavLink to="/login">
+                        <Button>Login</Button>
+                    </NavLink>
                     <div id="rules" className="landing-item">
                         <h1>RULES</h1>
                         <h2>Round 1</h2>

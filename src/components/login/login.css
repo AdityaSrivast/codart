@@ -27,6 +27,10 @@
     color: #FE5151 !important;
 }
 
+.btn-container {
+    padding: 0 !important;
+}
+
 .login-form button {
     background-color: #FE5151;
     color: #fff;
@@ -42,6 +46,16 @@
     background-color: #FE5151;
     opacity: .9;
 }
+
+.error-snackbar>div {
+    background-color: #ec0909;
+    font-family: 'Poppins' ,sans-serif !important;
+}
+.success-snackbar>div {
+    background-color: green;
+    font-family: 'Poppins' ,sans-serif !important;
+}
+
 @media only screen and (max-width: 1000px) {
     .login {
         width: 40%;

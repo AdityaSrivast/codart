@@ -1,18 +1,69 @@
 import React, {Component} from 'react';
-import {TextField, Button } from '@material-ui/core';
+import {TextField, Button, CircularProgress, Snackbar } from '@material-ui/core';
 import Navbar from '../common/navbar';
+import axios from 'axios';
+
+import Cookie from '../cookie';
+import urls from '../urls';
 import './login.css';
+
+const BASE_URL = urls.BASE_URL;
 
 class Login extends Component {
     state = {
-        email: '',
-        password: ''
+        teamname: '',
+        password: '',
+        openSnackbar: false,
+        msgSnackbar: '',
+        typeSnackbar: 'error',
+        vertical: 'top',
+        horizontal: 'center',
+        loading: false
     }
 
     postLogin = (e) => {
         e.preventDefault();
-        const {email, password} = this.state;
-        console.log(email, password);
+        this.setState({loading: true});
+        const { teamname, password } = this.state;
+        let data = {team: teamname, passwd: password};
+        console.log(data);
+        axios.post(`${BASE_URL}/login`, data)
+        .then(resp=> {
+            if(resp.data) {
+                data = resp.data;
+                let token = data.token;
+                console.log(data,token);
+                Cookie.setCookie('token', token);
+                this.setState({openSnackbar: true,
+                    msgSnackbar: `Welcome team ${teamname}`,
+                    typeSnackbar: 'success',
+                    loading: false
+                });
+                setTimeout(() => {
+					this.props.history.push('/questions');
+                    }, 
+                3000);
+            }
+            else {
+                this.setState({openSnackbar: true,
+                    msgSnackbar: `The teamname or password is invalid. Please try again`,
+                    typeSnackbar: 'error',
+                    loading: false,
+                    teamname: '',
+                    password: ''
+                });
+            }
+        })
+        .catch(err=> {
+            console.log(err);
+            this.setState({openSnackbar: true,
+                msgSnackbar: `The teamname or password is invalid.  Please try again`,
+                typeSnackbar: 'error',
+                loading: false,
+                teamname: '',
+                password: ''
+            });
+        });
     }
 
     handleChange = name => event => {
@@ -21,11 +72,17 @@ class Login extends Component {
         })
     }
 
+    onClose = () => {
+        this.setState({openSnackbar: false, loading: false});
+    }
+
     componentDidMount() {
-        document.title="Codart-Login"
+        document.title="Codart | Login"
     }
 
     render() {
+        let {vertical, horizontal, openSnackbar, 
+            msgSnackbar, typeSnackbar, loading} = this.state;
         return (
             <div>
                 <Navbar/>
@@ -33,11 +90,10 @@ class Login extends Component {
                     <form className="login-form" onSubmit={this.postLogin}>
                         <div>
                             <TextField
-                                label="email address"
-                                type="email"
+                                label="teamname"
                                 className=""
-                                value={this.state.email}
-                                onChange={this.handleChange('email')}
+                                value={this.state.teamname}
+                                onChange={this.handleChange('teamname')}
                                 margin="normal"
                                 variant="outlined"
                             /><br/>
@@ -51,9 +107,24 @@ class Login extends Component {
                                 variant="outlined"
                             /><br/>
                         </div>
-                        <Button type="submit">Login</Button>
+                        <div className="btn-container">
+                            <Button disabled={loading} 
+                            type="submit"
+                            >{loading? <CircularProgress 
+                                style={{color: '#fff'}} />:
+                                <span>Login</span>}</Button>
+                        </div>
                     </form>
                 </div>
+                <Snackbar
+			  	  anchorOrigin={{ vertical, horizontal }}
+		          open={openSnackbar}
+                  message={msgSnackbar}
+                  className={typeSnackbar==='success'? 
+                  'success-snackbar': 'error-snackbar'}
+		          autoHideDuration={3000}
+		          onClose={this.onClose}
+		        />
             </div>
         )
     }
