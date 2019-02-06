@@ -1,14 +1,32 @@
 import React, {Component} from 'react';
 import {Grid, Button} from '@material-ui/core';
 import Submission from './submission';
-import QuestionList from './questionList';
+// import QuestionList from './questionList';
+
+import axios from 'axios';
 
 import './style.css';
 
 class Questions extends Component {
 
-    shouldComponentUpdate() {
-        console.log(this.refs);
+    constructor() {
+        super();
+        this.getQues();
+    }
+
+    getQues = () => {
+        let cookie = Cookie.getCookie('token');
+        let config = {
+            headers : {'Content-Type' : 'application/json','Authorization':'Bearer '+cookie},
+        };
+        axios.get(`${BASE_URL}/team`, config)
+        .then (resp => {
+            let profile = resp.data;
+            this.setState({profile});
+        })
+        .catch(err=> {
+            console.log(err);
+        });
     }
 
     render() {
@@ -45,7 +63,7 @@ class Questions extends Component {
                     </Grid>
                     <Grid item lg={4} xs={4}>
                         <Submission/>
-                        <QuestionList/>
+                        {/* <QuestionList/> */}
                     </Grid>
                 </Grid>
             </div>

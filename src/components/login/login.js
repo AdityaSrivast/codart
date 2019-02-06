@@ -32,7 +32,7 @@ class Login extends Component {
             if(resp.data) {
                 data = resp.data;
                 let token = data.token;
-                console.log(data,token);
+                // console.log(data,token);
                 Cookie.setCookie('token', token);
                 this.setState({openSnackbar: true,
                     msgSnackbar: `Welcome team ${teamname}`,
@@ -40,7 +40,7 @@ class Login extends Component {
                     loading: false
                 });
                 setTimeout(() => {
-					this.props.history.push('/questions');
+					this.props.history.push('/leaderboard');
                     }, 
                 3000);
             }

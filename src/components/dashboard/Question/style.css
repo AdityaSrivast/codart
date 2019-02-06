@@ -51,8 +51,9 @@
     display: inline-block;
     white-space: nowrap;
     -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .question-form>div input {
@@ -62,6 +63,7 @@
     cursor: pointer;
     border-radius: 5px;
     outline: none;
+    width: 50%;
 }
 
 .question-form>div input:hover {

@@ -6,6 +6,8 @@ import {NavLink} from 'react-router-dom';
 
 import AddOutlined from '../../images/add-outlined.png';
 import MinusOutlined from '../../images/minus-outlined.png';
+
+import Navbar from '../common/navbar';
 import './landing.css';
 
 class Landing extends Component {
@@ -27,7 +29,7 @@ class Landing extends Component {
         const { expanded } = this.state;
         return(
             <div className="landing-section">
-                {/* <Navbar/> */}
+                <Navbar/>
                 <div className="landing-content">
                     <div id="about" className="landing-item">
                         <h1>ABOUT</h1>

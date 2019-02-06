@@ -1,5 +1,5 @@
 .leaderboard-section {
-    padding: 2rem;
+    padding: 0 0 1rem 2rem;
 }
 
 .heading {
@@ -29,8 +29,28 @@
     color: #FE5151;
     font-size: 1.2rem;
     font-weight: bold;
-    background-color: rgba(254, 81, 81, .25);
     padding: 1rem;
+}
+
+.leaderboard-list>table tr {
+    background-color: #fff;
+}
+
+.leaderboard-list>table tr:hover {
+    background-color: rgba(254, 81, 81, .25);
+    cursor: pointer;
+}
+
+.leaderboard-list>table tr:first-child {
+    background-color: rgba(254, 81, 81, .25);
+}
+
+.leaderboard-list>table tr:first-child:hover {
+    /* background-color: #fff; */
+}
+
+.leaderboard-list>table tr:hover {
+    opacity: .8;
 }
 
 @media only screen and (max-width: 1200px) {

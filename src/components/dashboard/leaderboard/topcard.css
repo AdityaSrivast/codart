@@ -1,13 +1,28 @@
+.topcard-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topcard-grid>div {
+    min-width: 210px;
+}
+
 .topcard {
     border: 1.2px solid #FE5151;
     color: #FE5151;
     border-radius: 6px;
-    width: 280px;
+    /* width: 280px; */
+    /* min-width: 150px; */
     text-align: center;
     padding: .5rem;
     background-color: #fff;
     /* box-shadow: 3px 4px 6px; */
     box-shadow: rgba(0,0,0,0.31) 3px 4px 6px;
+    cursor: pointer;
+    transition: .5s;
+}
+.topcard:hover {
+    box-shadow: rgba(0,0,0,0.31) 5px 7px 10px;
 }
 .topcard-rank {
     /* margin: 0; */
