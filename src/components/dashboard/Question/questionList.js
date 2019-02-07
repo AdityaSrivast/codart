@@ -6,7 +6,7 @@ class QuestionList extends Component {
             <div className="submission">
                     {/* <tr> */}
                     <p>Questions List</p>
-                    <table  cellspacing="0" cellpadding="0">
+                    <table  cellSpacing="0" cellPadding="0">
                     {/* </tr> */}
                     <tr>
                         <td>time</td>

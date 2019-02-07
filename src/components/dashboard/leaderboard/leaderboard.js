@@ -97,7 +97,7 @@ class Leaderboard extends Component {
                             {topCard}
                         </Grid>
                         <div className="leaderboard-list">
-                            <table cellspacing="0" cellpadding="0">
+                            <table cellSpacing="0" cellPadding="0">
                                 {leaderList}
                             </table>
                         </div>

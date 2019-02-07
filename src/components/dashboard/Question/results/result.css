@@ -1,0 +1,30 @@
+/* OPENTESTCASE */
+
+.results h3 {
+    color: #FE5151;
+    font-weight: bold;
+}
+
+.results p {
+    color: #303030;
+}
+
+.result-container {
+    padding: 1rem 0 0 2rem;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.result-container>div>p {
+    background-color: rgba(120,120,120,.1);
+    padding-left: 10px;
+}
+
+.result-container>div>p:first-child {
+    color: #FE5151;
+    font-weight: bold;
+    background-color: transparent;
+}
+

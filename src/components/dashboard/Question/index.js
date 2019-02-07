@@ -188,10 +188,13 @@ class Questions extends Component {
                 </Grid>
                 <Grid container spacing={24}>
                     <Grid item lg={8} xs={7}>
-                        <OpenTestcase/><br/>
+                        {result && result[0] && <OpenTestcase openCase={result[0]} />}<br/>
                         <Button className="submit-btn"
                                     onClick={this.submit}
                         >Submit</Button>
+                    </Grid>
+                    <Grid item lg={4} xs={5}>
+                        {result && result[1] && <Output results={result} />}
                     </Grid>
                 </Grid>
                 <Snackbar
