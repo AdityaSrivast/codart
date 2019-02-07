@@ -10,7 +10,7 @@ class Output extends Component {
             showResults.push(
                 <tr>
                     <td>{`Testcase${result.case}`}</td>
-                    <td>{result.success?<Done style={{color: 'green'}}/>
+                    <td>{result.sucess?<Done style={{color: 'green'}}/>
                     :<Clear style={{color:'red'}} />}</td>
                 </tr>
             )

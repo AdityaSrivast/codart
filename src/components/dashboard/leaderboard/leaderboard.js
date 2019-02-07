@@ -77,7 +77,7 @@ class Leaderboard extends Component {
                 }
                 else {
                     leaderList.push(
-                        <tr>
+                        <tr style={{backgroundColor:myTeamRank==i+1?'rgba(254, 81, 81, .25)':''}}>
                             <td>{i+1}</td>
                             <td>{team.team}</td>
                             <td>{team.score}</td>

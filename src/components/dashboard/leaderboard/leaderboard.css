@@ -42,7 +42,7 @@
 }
 
 .leaderboard-list>table tr:first-child {
-    background-color: rgba(254, 81, 81, .25);
+    /* background-color: rgba(254, 81, 81, .25); */
 }
 
 .leaderboard-list>table tr:first-child:hover {

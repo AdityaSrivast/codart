@@ -26,7 +26,8 @@ class Questions extends Component {
             typeSnackbar: '',
             vertical: 'top',
             horizontal: 'center',
-            results: []
+            results: [],
+            questionView:true
         }
         this.getQues();
     }
@@ -57,8 +58,9 @@ class Questions extends Component {
             this.setState({problem});
         })
         .catch(err=> {
-            if(err.status===404) {
+            if(err.response.status===404) {
                 console.log('its 404');
+                this.setState({questionView:false,queue:err.response.data.QueueIndex})
             }
             console.log(err);
         });
@@ -139,6 +141,8 @@ class Questions extends Component {
         let {problem, openSnackbar, msgSnackbar, typeSnackbar, vertical, horizontal, results} = this.state;
         let {done, points, result} = results;
         console.log(done, points, result);
+        console.log(this.state.questionView)
+        if(this.state.questionView)
         return(
             <div className="question-section">
                 <p className="heading">Question View</p>
@@ -207,6 +211,18 @@ class Questions extends Component {
 		          onClose={this.onClose}
 		        />
             </div>
+        )
+        else return(
+                <div className="question-section">
+                    <p className="heading">Question View</p>
+                    <Grid container spacing={24}>
+                        <Grid item lg={12} xs={12}>
+                        <h2 className="heading">It's to time throw the Dart! 🎯</h2>
+                        Nothing is assigned to you right now. Throw the dart to get the question.<br/>
+                        Your waiting queue# is: <b>{this.state.queue}</b>
+                        </Grid>
+                        </Grid></div>
+                        
         )
     }
 }
