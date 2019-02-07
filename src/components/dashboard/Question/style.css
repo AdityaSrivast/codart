@@ -1,5 +1,5 @@
 .question-section {
-    padding: 2rem;
+    padding: 2rem 0 1rem 2rem;
 }
 
 .heading {
@@ -15,10 +15,15 @@
     font-size: 1.2rem;
 }
 
+.question pre {
+    white-space: pre-wrap;
+}
+
 .question-form {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .question-form>div {
@@ -50,10 +55,6 @@
     content: '';
     display: inline-block;
     white-space: nowrap;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: center;
 }
 
 .question-form>div input {
@@ -63,7 +64,11 @@
     cursor: pointer;
     border-radius: 5px;
     outline: none;
-    width: 50%;
+    /* width: 50%; */
+}
+
+.question-form>div input::after {
+    text-align: center;
 }
 
 .question-form>div input:hover {
@@ -98,5 +103,9 @@
 }
 .submission table {
     width: 100%;
-    padding: .5rem 1rem;
+    padding: .5rem 0;
+}
+
+.submission table td {
+    text-align: center;
 }

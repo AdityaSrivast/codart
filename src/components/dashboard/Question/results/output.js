@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Testcase extends Component {
+class Output extends Component {
     render() {
         return (
             <div className="testcase">
@@ -19,4 +19,4 @@ class Testcase extends Component {
     }
 }
 
-export default Testcase;
+export default Output;

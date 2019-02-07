@@ -26,7 +26,7 @@ html, body {
   font-family: 'Poppins' ,sans-serif !important;
   color: #303030;
 }
-input, label, option, select {
+input, label, option, select, pre {
   font-family: 'Poppins' ,sans-serif !important;
 }
 
@@ -52,6 +52,7 @@ body {
     margin-right: 0;
   }
 }
+
 @media only screen and (max-width: 400px) {
   .navbar img {
     height: 50px;
