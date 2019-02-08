@@ -43,7 +43,7 @@ class Submission extends Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let {attempts} = this.state;
         let showAttempts = [], attempt, cases, successAttempts;
         for(let i=0;i<attempts.length;i++) {
@@ -76,7 +76,8 @@ class Submission extends Component {
                     <th>Time</th>
                     <th>Downloads</th>
                 </tr>
-                {showAttempts}
+                {showAttempts && showAttempts.length>0? 
+                    showAttempts: <td style={{color: 'red', marginTop: '1rem'}} colSpan={4}>No submissions yet</td>}
                 </table>
             </div>
         );

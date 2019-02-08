@@ -2,6 +2,12 @@
     padding: 2rem 0 1rem 2rem;
 }
 
+.question-section-top {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 3rem;
+}
+
 .heading {
     color: #FE5151;
     font-size: 2rem;
@@ -114,3 +120,24 @@
 /* .MuiGrid-spacing-xs-24-25{
     width:100%!important
 } */
+
+/* LEADERBOARD */
+
+.nav-btn-container button {
+    background-color: #FE5151;
+    color: #fff;
+    text-transform: none;
+    padding: 10px 1rem;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: 'Poppins' ,sans-serif !important;
+}
+
+.nav-btn-container a {
+    text-decoration: none;
+}
+
+.nav-btn-container button:hover {
+    background-color: rgba(254, 81, 81, .8);
+    transition: .5s;
+}
