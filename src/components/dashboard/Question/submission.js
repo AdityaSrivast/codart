@@ -17,14 +17,14 @@ class Submission extends Component {
     }
     
     componentDidMount(){
-        this.props.socket.on('updateSub',function(){
+        this.props.socket.on('updateSub',()=>{
             this.getSubmissions()
         })
     }
 
-    componentWillUnmount(){
-        this.props.socket.removeEventListener('updateSub')
-    }
+    // componentWillUnmount(){
+    //     this.props.socket.removeEventListener('updateSub')
+    // }
 
     getSubmissions = () => {
         let cookie = Cookie.getCookie('token');

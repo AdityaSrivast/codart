@@ -25,14 +25,14 @@ class Leaderboard extends Component {
         this.getProfile();
     }
     componentDidMount(){
-        this.props.socket.on('updateLeader',function(){
+        this.props.socket.on('updateLeader',()=>{
             this.getLeaderboard()
         })
     }
 
-    componentWillUnmount(){
-        this.props.socket.removeEventListener('updateLeader')
-    }
+    // componentWillUnmount(){
+    //     this.props.socket.removeEventListener('updateLeader')
+    // }
 
     getProfile = () => {
         let cookie = Cookie.getCookie('token');

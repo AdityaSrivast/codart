@@ -42,9 +42,9 @@ class Questions extends Component {
         })
     }
 
-    componentWillUnmount(){
-        this.props.socket.removeEventListener('updateQues')
-    }
+    // componentWillUnmount(){
+    //     this.props.socket.removeEventListener('updateQues')
+    // }
 
     handleChange = name => event => {
         if(name==='file' && event.target.files) {
@@ -109,6 +109,7 @@ class Questions extends Component {
         let extensions = ['c','cpp','java','py'], extension;
         form.append('lang', language);
         form.append('file', file);
+        form.append('socketId',this.props.socket.id)
         console.log(file);
 
         //checking empty field
@@ -234,8 +235,11 @@ class Questions extends Component {
                             </Grid>
                             <Grid item lg={5} xs={5}>
                                 <Button className="submit-btn"
-                                            onClick={()=>this.setState({ diagOpen: true })}
-                                >Skip</Button>
+                                            onClick={()=>{
+                                                if(done) this.getQues()
+                                                else this.setState({ diagOpen: true })}
+                                            }
+                                >{done?'Continue':'Skip'}</Button>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -269,7 +273,7 @@ class Questions extends Component {
                         Exit
                         </Button>
                         <Button onClick={this.skip} color="primary" autoFocus>
-                        Confirm
+                        Confirm 
                         </Button>
                     </DialogActions>
                 </Dialog>
@@ -286,14 +290,14 @@ class Questions extends Component {
                         </Grid>
                         </Grid>
                         <Snackbar
-			  	  anchorOrigin={{ vertical, horizontal }}
-		          open={openSnackbar}
-                  message={msgSnackbar}
-                  className={typeSnackbar==='success'? 
-                  'success-snackbar': 'error-snackbar'}
-		          autoHideDuration={10000}
-		          onClose={this.onClose}
-		        />
+                    anchorOrigin={{ vertical, horizontal }}
+                    open={openSnackbar}
+                    message={msgSnackbar}
+                    className={typeSnackbar==='success'? 
+                    'success-snackbar': 'error-snackbar'}
+                    autoHideDuration={10000}
+                    onClose={this.onClose}
+                />
                 </div>
                         
         )
