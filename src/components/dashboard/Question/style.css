@@ -104,7 +104,8 @@
 .submission table {
     width: 100%;
     padding: .5rem 0;
-    background: rgba(254, 81, 81, .05);
+    background: rgba(254, 81, 81, .1);
+    /* background-color: rgba(120,120,120,.05); */
 }
 
 .submission table td {
