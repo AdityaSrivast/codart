@@ -28,7 +28,7 @@ const Profile = props => {
             </div>
             <div className="submit-btn-container">
                 <NavLink to="/questions">
-                    <Button>Question View ></Button>
+                    <Button>Question View</Button>
                 </NavLink>
             </div>
         </div>

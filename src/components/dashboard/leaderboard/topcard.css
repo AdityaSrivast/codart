@@ -1,6 +1,6 @@
 .topcard-grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .topcard-grid>div {

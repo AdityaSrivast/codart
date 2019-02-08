@@ -30,9 +30,12 @@ class Landing extends Component {
         return(
             <div className="landing-section">
                 <Navbar/>
+                {/* <div className="featured-content">
+
+                </div> */}
                 <div className="landing-content">
                     <div id="about" className="landing-item">
-                        <h1>ABOUT</h1>
+                        <h1 id="about" >ABOUT</h1>
                         <p>
                         The name says it all. <b>Codart = Code + Dart</b>. This unconventional combination provides for an amusing experience, and it is the USP of this very unique coding contest.<br/><br/>
 The contest has two rounds, with the first round being an online test (on Hackerearth) for all teams, who have to submit their codes for as many problems as possible within the given time. The ten teams which have accumulated the highest score during round 1 are invited for the second and final round.<br/><br/>

@@ -32,6 +32,7 @@ input, label, option, select, pre {
 
 body {
   background: url('./images/background1.png');
+  overflow-x: hidden !important;
 }
 .navbar {
   display: flex;
