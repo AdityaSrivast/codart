@@ -15,6 +15,16 @@ class Submission extends Component {
         }
         this.getSubmissions();
     }
+    
+    componentDidMount(){
+        this.props.socket.on('updateSub',function(){
+            this.getSubmissions()
+        })
+    }
+
+    componentWillUnmount(){
+        this.props.socket.removeEventListener('updateSub')
+    }
 
     getSubmissions = () => {
         let cookie = Cookie.getCookie('token');
@@ -33,6 +43,7 @@ class Submission extends Component {
     }
 
     render() {
+        console.log(this.props)
         let {attempts} = this.state;
         let showAttempts = [], attempt, cases, successAttempts;
         for(let i=0;i<attempts.length;i++) {

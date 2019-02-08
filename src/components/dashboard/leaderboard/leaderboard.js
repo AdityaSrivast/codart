@@ -24,6 +24,15 @@ class Leaderboard extends Component {
         this.getLeaderboard();
         this.getProfile();
     }
+    componentDidMount(){
+        this.props.socket.on('updateLeader',function(){
+            this.getLeaderboard()
+        })
+    }
+
+    componentWillUnmount(){
+        this.props.socket.removeEventListener('updateLeader')
+    }
 
     getProfile = () => {
         let cookie = Cookie.getCookie('token');
@@ -59,6 +68,7 @@ class Leaderboard extends Component {
     }
 
     render() {
+        console.log(this.props)
         let {teams, profile, myTeamRank} = this.state;
         let topCard = [], leaderList=[], team;
 

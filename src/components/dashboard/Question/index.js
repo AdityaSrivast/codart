@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Grid, Button, Snackbar} from '@material-ui/core';
+import {Grid, Button, Snackbar,Dialog,DialogActions,
+    DialogContent,DialogContentText,DialogTitle} from '@material-ui/core';
 import Submission from './submission';
 // import QuestionList from './questionList';
 
@@ -10,6 +11,7 @@ import Output from './results/output';
 import Cookie from '../../cookie';
 import urls from '../../urls';
 import './style.css';
+import { Socket } from 'dgram';
 
 const BASE_URL = urls.BASE_URL;
 
@@ -30,6 +32,18 @@ class Questions extends Component {
             questionView:true
         }
         this.getQues();
+    }
+
+    componentDidMount(){
+        var getQues=this.getQues
+        this.props.socket.on('updateQues',function(){
+            console.log('socket','updating question....')
+            getQues()
+        })
+    }
+
+    componentWillUnmount(){
+        this.props.socket.removeEventListener('updateQues')
     }
 
     handleChange = name => event => {
@@ -55,7 +69,7 @@ class Questions extends Component {
         .then (resp => {
             let problem = resp.data;
             console.log(problem);
-            this.setState({problem});
+            this.setState({problem,questionView:true});
         })
         .catch(err=> {
             if(err.response.status===404) {
@@ -64,6 +78,25 @@ class Questions extends Component {
             }
             console.log(err);
         });
+    }
+    skip=()=>{
+        this.setState({ diagOpen: false })
+        let cookie = Cookie.getCookie('token');
+        let config = {
+            headers : {'Authorization':'Bearer '+cookie},
+        };
+        axios.post(`${BASE_URL}/team/problem/skip`, null, config)
+            .then(async resp=> {
+                await this.getQues()
+                this.setState({openSnackbar: true, 
+                    msgSnackbar: 'Question Skipped!', typeSnackbar: 'success'});
+            })
+            .catch(err=> {
+                if(err.response.status===400){
+                    this.setState({openSnackbar: true, 
+                        msgSnackbar: err.response.data.err, typeSnackbar: 'error'});
+                }
+            })
     }
 
     submit = () => {
@@ -186,16 +219,25 @@ class Questions extends Component {
                         </div>
                     </Grid>
                     <Grid item lg={4} xs={5}>
-                        <Submission/>
+                        <Submission socket={this.props.socket}/>
                         {/* <QuestionList/> */}
                     </Grid>
                 </Grid>
                 <Grid container spacing={24}>
                     <Grid item lg={8} xs={7}>
                         {result && result[0] && <OpenTestcase openCase={result[0]} />}<br/>
-                        <Button className="submit-btn"
-                                    onClick={this.submit}
-                        >Submit</Button>
+                        <Grid container spacing={24}>
+                            <Grid item lg={6} xs={6}>
+                                <Button className="submit-btn"
+                                            onClick={this.submit}
+                                >Submit</Button>
+                            </Grid>
+                            <Grid item lg={5} xs={5}>
+                                <Button className="submit-btn"
+                                            onClick={()=>this.setState({ diagOpen: true })}
+                                >Skip</Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid item lg={4} xs={5}>
                         {result && result[1] && <Output results={result} />}
@@ -210,6 +252,27 @@ class Questions extends Component {
 		          autoHideDuration={10000}
 		          onClose={this.onClose}
 		        />
+                <Dialog
+                    open={this.state.diagOpen}
+                    onClose={()=>this.setState({ diagOpen: false })}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    >
+                    <DialogTitle id="alert-dialog-title">{"You are about to skip a question"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                        Note that every team is allowed to skip 3 questions only. Once you reached your count, you won't be able to skip any quesion.
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={()=>this.setState({ diagOpen: false })} color="primary">
+                        Exit
+                        </Button>
+                        <Button onClick={this.skip} color="primary" autoFocus>
+                        Confirm
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
         else return(
@@ -221,7 +284,17 @@ class Questions extends Component {
                         Nothing is assigned to you right now. Throw the dart to get the question.<br/>
                         Your waiting queue# is: <b>{this.state.queue}</b>
                         </Grid>
-                        </Grid></div>
+                        </Grid>
+                        <Snackbar
+			  	  anchorOrigin={{ vertical, horizontal }}
+		          open={openSnackbar}
+                  message={msgSnackbar}
+                  className={typeSnackbar==='success'? 
+                  'success-snackbar': 'error-snackbar'}
+		          autoHideDuration={10000}
+		          onClose={this.onClose}
+		        />
+                </div>
                         
         )
     }
