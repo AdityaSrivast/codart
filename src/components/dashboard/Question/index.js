@@ -257,7 +257,6 @@ class Questions extends Component {
                             {result && result[1] && <Output results={result} />}
                         </Grid>
                     </Grid>
-<<<<<<< HEAD
                     <Grid item lg={4} xs={5}>
                         {result && result[1] && <Output results={result} />}
                     </Grid>
@@ -292,42 +291,12 @@ class Questions extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
-=======
-                    <Snackbar
-                    anchorOrigin={{ vertical, horizontal }}
-                    open={openSnackbar}
-                    message={msgSnackbar}
-                    className={typeSnackbar==='success'? 
-                    'success-snackbar': 'error-snackbar'}
-                    autoHideDuration={10000}
-                    onClose={this.onClose}
-                    />
-                    <Dialog
-                        open={this.state.diagOpen}
-                        onClose={()=>this.setState({ diagOpen: false })}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
-                        >
-                        <DialogTitle id="alert-dialog-title">{"You are about to skip a question"}</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText id="alert-dialog-description">
-                            Note that every team is allowed to skip 3 questions only. Once you reached your count, you won't be able to skip any quesion.
-                            </DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={()=>this.setState({ diagOpen: false })} color="primary">
-                            Exit
-                            </Button>
-                            <Button onClick={this.skip} color="primary" autoFocus>
-                            Confirm
-                            </Button>
-                        </DialogActions>
-                    </Dialog>
-                </div>
->>>>>>> 6f88b0e9ae944387bec933e61df2148e59ff6e7e
+            </div>
             </div>
         )
         else return(
+            <div>
+                <Navbar/>
                 <div className="question-section">
                     <p className="heading">Question View</p>
                     <Grid container spacing={24}>
@@ -347,7 +316,7 @@ class Questions extends Component {
                     onClose={this.onClose}
                 />
                 </div>
-                        
+            </div>       
         )
     }
 }

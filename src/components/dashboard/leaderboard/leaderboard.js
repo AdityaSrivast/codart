@@ -27,8 +27,9 @@ class Leaderboard extends Component {
     }
     componentDidMount(){
         document.title = "Codart | Leaderboard";
-        this.props.socket.on('updateLeader',function(){
-            this.getLeaderboard()
+        this.props.socket.on('updateLeader',() => {
+            this.getLeaderboard();
+            this.getProfile();
         })
     }
 
@@ -117,7 +118,8 @@ class Leaderboard extends Component {
                             </div>
                         </Grid>
                         <Grid item lg={3} xs={4}>
-                            <Profile teamname={profile.team} members={profile.members}
+                            <Profile
+                             teamname={profile.team} members={profile.members}
                             score={profile.points} solvedQues={profile.solvedQues} 
                             totalQues={profile.totalQues} rank={myTeamRank} />
                         </Grid>
