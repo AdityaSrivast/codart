@@ -34,11 +34,16 @@ body {
   background: url('./images/background1.png');
   overflow-x: hidden !important;
 }
+.navbar-btn-container {
+  display: flex;
+  align-items: center;
+}
 .navbar {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: #303030;
-  padding: 5px;
+  justify-content: space-between;
+  padding: 10px 1rem;
 }
 .navbar img {
   margin-right: 3rem;

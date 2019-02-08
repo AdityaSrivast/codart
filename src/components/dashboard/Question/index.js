@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Grid, Button, Snackbar,Dialog,DialogActions,
-    DialogContent,DialogContentText,DialogTitle} from '@material-ui/core';
+    DialogContent,DialogContentText,DialogTitle, CircularProgress} from '@material-ui/core';
 import Submission from './submission';
 // import QuestionList from './questionList';
 
@@ -184,11 +184,11 @@ class Questions extends Component {
                 <div className="question-section">
                     <div className="question-section-top">
                         <p className="heading">Question View</p>
-                        <div className="nav-btn-container">
+                        {/* <div className="nav-btn-container">
                             <NavLink to="/leaderboard">
                                 <Button>Go to Leaderboard</Button>
                             </NavLink>
-                        </div>
+                        </div> */}
                     </div>
                     <Grid container spacing={24}>
                         <Grid item lg={8} xs={7}>

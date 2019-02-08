@@ -15,7 +15,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route path="/" component={Landing} exact />
-          <Route path="/login" component={Login} exact />
+          {<Route path="/login" component={Login} exact />}
           {/* <Route path="/leaderboard" component={Leaderboard} exact /> */}
           <Route path="/" component={Dashboard}/>
         </Switch>

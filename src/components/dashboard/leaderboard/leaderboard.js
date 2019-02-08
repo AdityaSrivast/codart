@@ -8,6 +8,7 @@ import Profile from './profile';
 import urls from '../../urls';
 import Cookie from '../../cookie';
 import './leaderboard.css';
+import Navbar from '../../common/navbar';
 // import { Cookies } from 'electron';
 
 const BASE_URL = urls.BASE_URL;
@@ -25,7 +26,8 @@ class Leaderboard extends Component {
         this.getProfile();
     }
     componentDidMount(){
-        this.props.socket.on('updateLeader',()=>{
+        document.title = "Codart | Leaderboard";
+        this.props.socket.on('updateLeader',function(){
             this.getLeaderboard()
         })
     }
@@ -99,25 +101,28 @@ class Leaderboard extends Component {
         }
 
         return(
-            <div className="leaderboard-section">
-                <Grid container spacing={24}>
-                    <Grid item lg={9} xs={8}>
-                        <p className="heading">Leaderboard</p>
-                        <Grid container spacing={24} className="topcard-grid">
-                            {topCard}
+            <div>
+                <Navbar/>
+                <div className="leaderboard-section">
+                    <Grid container spacing={24}>
+                        <Grid item lg={9} xs={8}>
+                            <p className="heading">Leaderboard</p>
+                            <Grid container spacing={24} className="topcard-grid">
+                                {topCard}
+                            </Grid>
+                            <div className="leaderboard-list">
+                                <table cellSpacing="0" cellPadding="0">
+                                    {leaderList}
+                                </table>
+                            </div>
                         </Grid>
-                        <div className="leaderboard-list">
-                            <table cellSpacing="0" cellPadding="0">
-                                {leaderList}
-                            </table>
-                        </div>
+                        <Grid item lg={3} xs={4}>
+                            <Profile teamname={profile.team} members={profile.members}
+                            score={profile.points} solvedQues={profile.solvedQues} 
+                            totalQues={profile.totalQues} rank={myTeamRank} />
+                        </Grid>
                     </Grid>
-                    <Grid item lg={3} xs={4}>
-                        <Profile teamname={profile.team} members={profile.members}
-                         score={profile.points} solvedQues={profile.solvedQues} 
-                         totalQues={profile.totalQues} rank={myTeamRank} />
-                    </Grid>
-                </Grid>
+                </div>
             </div>
         )
     }
