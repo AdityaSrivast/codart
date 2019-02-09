@@ -17,7 +17,7 @@ class Output extends Component {
         }
         return (
             <div className="submission">
-                <p>Output</p>
+                <p style={{backgroundColor:this.props.done?'green':'#fe5151'}}>Output</p>
                 <table>
                 <tr>
                     <th>Testcase</th>

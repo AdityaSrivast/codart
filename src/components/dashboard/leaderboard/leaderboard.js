@@ -25,17 +25,23 @@ class Leaderboard extends Component {
         this.getLeaderboard();
         this.getProfile();
     }
+    
     componentDidMount(){
         document.title = "Codart | Leaderboard";
         this.props.socket.on('updateLeader',() => {
+            this.state = {
+                teams: [],
+                profile: [],
+                myTeamRank: ''
+            }
             this.getLeaderboard();
             this.getProfile();
         })
     }
 
-    // componentWillUnmount(){
-    //     this.props.socket.removeEventListener('updateLeader')
-    // }
+    componentWillUnmount(){
+        this.props.socket.removeEventListener('updateLeader')
+    }
 
     getProfile = () => {
         let cookie = Cookie.getCookie('token');
@@ -60,7 +66,7 @@ class Leaderboard extends Component {
             headers : {'Content-Type' : 'application/json','Authorization':'Bearer '+cookie},
         };
         axios.get(`${BASE_URL}/leaderboard`, config)
-        .then (resp => {
+        .then (resp => { 
             let teams = resp.data.result;
             console.log(teams);
             this.setState({teams, myTeamRank: resp.data.position});
