@@ -35,7 +35,7 @@ class Login extends Component {
                 // console.log(data,token);
                 Cookie.setCookie('token', token);
                 this.setState({openSnackbar: true,
-                    msgSnackbar: `Welcome team ${teamname}. Logging you in...`,
+                    msgSnackbar: `Welcome team ${teamname}. Logging in...`,
                     typeSnackbar: 'success',
                     loading: false
                 });

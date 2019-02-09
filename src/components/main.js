@@ -18,6 +18,8 @@ class Main extends Component {
 
     render() {
         let {component} = this.state;
+        // process.env.TOKEN = 'asd';
+        // console.log(process.env.TOKEN);
         let toMount;
         switch (component) {
             case 'landing':
