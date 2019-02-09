@@ -105,8 +105,8 @@ class Leaderboard extends Component {
             <div>
                 <Navbar/>
                 <div className="leaderboard-section">
-                    <Grid container spacing={24}>
-                        <Grid item lg={9} xs={8}>
+                    <Grid container>
+                        <Grid item lg={9} sm={8} xs={12}>
                             <p className="heading">Leaderboard</p>
                             <Grid container spacing={24} className="topcard-grid">
                                 {topCard}
@@ -117,7 +117,7 @@ class Leaderboard extends Component {
                                 </table>
                             </div>
                         </Grid>
-                        <Grid item lg={3} xs={4}>
+                        <Grid item lg={3} sm={4}>
                             <Profile
                              teamname={profile.team} members={profile.members}
                             score={profile.points} solvedQues={profile.solvedQues} 

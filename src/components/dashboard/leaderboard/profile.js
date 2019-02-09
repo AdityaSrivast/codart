@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import {KeyboardArrowRight} from '@material-ui/icons';
 import {NavLink} from 'react-router-dom';
 
 import './profile.css';
@@ -20,7 +21,7 @@ const Profile = props => {
             </div>
             <div>
                 <h2>Questions Solved</h2>
-                <h3>{`${props.solvedQues}/${!!props.totalQues?props.totalQues:''}`}</h3>
+                <h3>{`${(props.solvedQues| props.solvedQues===0)?props.solvedQues:''}/${props.totalQues?props.totalQues:''}`}</h3>
             </div>
             <div>
                 <h2>Position</h2>
@@ -28,7 +29,7 @@ const Profile = props => {
             </div>
             <div className="submit-btn-container">
                 <NavLink to="/questions">
-                    <Button>Question View</Button>
+                    <Button>Question View <KeyboardArrowRight className="hide-arrow" /></Button>
                 </NavLink>
             </div>
         </div>

@@ -253,9 +253,9 @@ class Questions extends Component {
                                 >{done?'Continue':'Skip'}</Button>
                             </Grid>
                         </Grid>
-                        <Grid item lg={4} xs={5}>
+                        {/* <Grid item lg={4} xs={5}>
                             {result && result[1] && <Output results={result} />}
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                     <Grid item lg={4} xs={5}>
                         {result && result[1] && <Output results={result} />}
