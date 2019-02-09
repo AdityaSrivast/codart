@@ -62,6 +62,7 @@ class Questions extends Component {
     }
 
     getQues = () => {
+        this.setState({results:{}})
         let cookie = Cookie.getCookie('token');
         let config = {
             headers : {'Content-Type' : 'application/json','Authorization':'Bearer '+cookie},
@@ -70,7 +71,7 @@ class Questions extends Component {
         .then (resp => {
             let problem = resp.data;
             console.log(problem);
-            this.setState({problem,questionView:true});
+            this.setState({result:null,problem,questionView:true});
         })
         .catch(err=> {
             if(err.response.status===404) {
@@ -101,6 +102,7 @@ class Questions extends Component {
     }
 
     submit = () => {
+        this.setState({results:{}})
         let {language, file} = this.state;
         let form = new FormData();
         let cookie = Cookie.getCookie('token');
@@ -237,12 +239,12 @@ class Questions extends Component {
                 {/* </Grid> */}
                 <Grid container spacing={24}>
                     <Grid item lg={8} xs={7}>
-                        {result && result[0] && <OpenTestcase openCase={result[0]} />}<br/>
+                        {result && result[0] && <OpenTestcase done={done} openCase={result[0]} />}<br/>
                         <Grid container spacing={24}>
                             <Grid item lg={6} xs={6}>
-                                <Button className="submit-btn"
+                                {done?<div/>:<Button className="submit-btn"
                                             onClick={this.submit}
-                                >Submit</Button>
+                                >Submit</Button>}
                             </Grid>
                             <Grid item lg={5} xs={5}>
                                 <Button className="submit-btn"
@@ -258,7 +260,7 @@ class Questions extends Component {
                         </Grid> */}
                     </Grid>
                     <Grid item lg={4} xs={5}>
-                        {result && result[1] && <Output results={result} />}
+                        {result && result[1] && <Output done={done} results={result} />}
                     </Grid>
                 </Grid>
                 <Snackbar
