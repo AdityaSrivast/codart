@@ -8,8 +8,11 @@ import Cookie from '../cookie';
 
 class App extends Component {
     constructor(props){
-        super(props)
-        this.state={socket:null}
+        super(props);
+        this.state={
+            socket:null,
+            component: 'leaderboard'
+        }
     }
     componentWillMount(){
         var token = Cookie.getCookie('token');
@@ -18,18 +21,33 @@ class App extends Component {
         console.log(token)
         socket.emit('connectMe',token)
     }
+
+    updateDashboardMount = (component) => {
+        this.setState({component: component});
+    }
+
     render() {
+        let {component} = this.state;
+        let toMount;
+        if(!component) {
+            toMount = <Leaderboard onUpdateDashboardMount={this.updateDashboardMount} socket={this.state.socket} />;
+        }
+        switch (component) {
+            case 'leaderboard':
+                toMount = <Leaderboard onUpdateDashboardMount={this.updateDashboardMount} socket={this.state.socket} />;
+                break;
+            case 'questions':
+                toMount = <Questions onUpdateDashboardMount={this.updateDashboardMount} socket={this.state.socket} />
+                break;
+            default:
+                this.props.updateToMount(component);
+                break;
+        }
+
         return (
-        <BrowserRouter>
-            <Switch>
-            <Route path="/leaderboard" exact>
-                <Leaderboard socket={this.state.socket}/>
-            </Route>
-            <Route path="/questions" exact >
-                <Questions socket={this.state.socket}/>
-            </Route>
-            </Switch>
-        </BrowserRouter>
+        <div>
+            {toMount}
+        </div>
         );
     }
 }

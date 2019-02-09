@@ -1,5 +1,5 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React, {Component} from 'react';
+// import {div} from 'react-router-dom';
 
 
 import { Button } from '@material-ui/core';
@@ -7,31 +7,39 @@ import { Button } from '@material-ui/core';
 import Cookie from '../cookie';
 import Codart from '../../images/codart.png';
 
-const Navbar = () => {
-    return (
-        <div className="navbar">
-            <NavLink to="/">
-                <img src={Codart} alt="Codart" />
-            </NavLink>
-            <div className="navbar-btn-container">
-                <div className="nav-btn-container" style={{marginRight: '10px'}}>
-                    <a href="/">
-                        <Button>Home</Button>
-                    </a>
+class Navbar extends Component {
+
+    handleHref = name => event => {
+        this.props.updateToMount(name);
+    }
+
+    render() {
+        return (
+            <div className="navbar">
+                <div to="/">
+                    <img src={Codart} alt="Codart" />
                 </div>
-                <div className="nav-btn-container">
-                    {!Cookie.getCookie('token') ? 
-                    <a href="/login">
-                        <Button>Login</Button>
-                    </a>:
-                    <NavLink to="/leaderboard">
-                        <Button>Leaderboard</Button>
-                    </NavLink> 
-                    }
+                <div className="navbar-btn-container">
+                    <div className="nav-btn-container" style={{marginRight: '10px'}}>
+                        <div onClick={this.handleHref('landing')}>
+                            <Button>Home</Button>
+                        </div>
+                    </div>
+                    <div className="nav-btn-container">
+                        {!Cookie.getCookie('token') ? 
+                        <div onClick={this.handleHref('login')}>
+                            <Button>Login</Button>
+                        </div>:
+                        //mount dashboard; by default leaderboard will be displayed on dashboard
+                        <div onClick={this.handleHref('dashboard')}>
+                            <Button>Leaderboard</Button>
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Navbar;

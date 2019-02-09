@@ -180,7 +180,7 @@ class Questions extends Component {
         if(this.state.questionView)
         return(
             <div>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="question-section">
                     <div className="question-section-top">
                         <p className="heading">Question View</p>
@@ -296,7 +296,7 @@ class Questions extends Component {
         )
         else return(
             <div>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="question-section">
                     <p className="heading">Question View</p>
                     <Grid container spacing={24}>

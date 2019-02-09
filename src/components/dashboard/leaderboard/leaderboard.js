@@ -103,7 +103,7 @@ class Leaderboard extends Component {
 
         return(
             <div>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="leaderboard-section">
                     <Grid container>
                         <Grid item lg={9} sm={8} xs={12}>
@@ -120,8 +120,9 @@ class Leaderboard extends Component {
                         <Grid item lg={3} sm={4}>
                             <Profile
                              teamname={profile.team} members={profile.members}
-                            score={profile.points} solvedQues={profile.solvedQues} 
-                            totalQues={profile.totalQues} rank={myTeamRank} />
+                             score={profile.points} solvedQues={profile.solvedQues} 
+                             totalQues={profile.totalQues} rank={myTeamRank} 
+                             onUpdateDashboardMount={this.props.onUpdateDashboardMount} />
                         </Grid>
                     </Grid>
                 </div>

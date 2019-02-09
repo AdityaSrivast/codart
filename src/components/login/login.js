@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TextField, Button, CircularProgress, Snackbar } from '@material-ui/core';
-import Navbar from '../common/navbar';
+// import Navbar from '../common/navbar';
 import axios from 'axios';
 
 import Cookie from '../cookie';
@@ -40,8 +40,10 @@ class Login extends Component {
                     loading: false
                 });
                 setTimeout(() => {
-					this.props.history.push('/leaderboard');
-                    }, 
+					// this.props.history.push('/leaderboard');
+                    // },
+                    this.props.updateToMount('leaderboard')
+                    },
                 3000);
             }
             else {
@@ -85,7 +87,7 @@ class Login extends Component {
             msgSnackbar, typeSnackbar, loading} = this.state;
         return (
             <div>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="login">
                     <form className="login-form" onSubmit={this.postLogin}>
                         <div>

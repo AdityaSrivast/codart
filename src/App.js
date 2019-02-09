@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Landing from './components/landing/landing';
-import Login from './components/login/login';
-import Dashboard from './components/dashboard/';
+import {HashRouter, Route, Switch} from 'react-router-dom';
+import Main from './components/main';
+// import Landing from './components/landing/landing';
+// import Login from './components/login/login';
+// import Dashboard from './components/dashboard/';
 // import Questions from './components/dashboard/Question';
 // import Leaderboard from './components/dashboard/leaderboard/leaderboard';
 import './style.css';
@@ -12,14 +13,13 @@ import './style.css';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
-          <Route path="/" component={Landing} exact />
-          {<Route path="/login" component={Login} exact />}
-          {/* <Route path="/leaderboard" component={Leaderboard} exact /> */}
-          <Route path="/" component={Dashboard}/>
+          <Route path="/" component={Main} exact />
+          {/* <Route path="/login" component={Login} exact />
+          <Route path="/" component={Dashboard}/> */}
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
