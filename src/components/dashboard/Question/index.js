@@ -74,11 +74,11 @@ class Questions extends Component {
             this.setState({result:null,problem,questionView:true});
         })
         .catch(err=> {
-            if(err.response.status===404) {
+            if(err.response && err.response.status===404) {
                 console.log('its 404');
                 this.setState({questionView:false,queue:err.response.data.QueueIndex})
             }
-            if(err.response.status===401) {
+            if(err.response && err.response.status===401) {
                 window.location='/login'
             }
             console.log(err);
@@ -97,11 +97,11 @@ class Questions extends Component {
                     msgSnackbar: 'Question Skipped!', typeSnackbar: 'success'});
             })
             .catch(err=> {
-                if(err.response.status===400){
+                if(err.response && err.response.status===400){
                     this.setState({openSnackbar: true, 
                         msgSnackbar: err.response.data.err, typeSnackbar: 'error'});
                 }
-                if(err.response.status===401) {
+                if(err.response && err.response.status===401) {
                     window.location='/login'
                 }
             })

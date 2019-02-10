@@ -14,9 +14,11 @@ function logout(){
 const Navbar = (props) => {
     return (
         <div className="navbar">
-            <NavLink to="/">
+            {/* <NavLink to="/"> */}
+            <a href="/">
                 <img src={Codart} alt="Codart" />
-            </NavLink>
+            </a>
+            {/* </NavLink> */}
             <div className="navbar-btn-container">
                 <div className="nav-btn-container" style={{marginRight: '10px'}}>
                     {!Cookie.getCookie('token') ? 

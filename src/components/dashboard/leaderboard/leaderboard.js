@@ -66,7 +66,7 @@ class Leaderboard extends Component {
             this.setState({profile});
         })
         .catch(err=> {
-            if(err.response.status===401) {
+            if(err.response && err.response.status===401) {
                 window.location='/login'
             }
             console.log(err);
@@ -85,7 +85,7 @@ class Leaderboard extends Component {
             this.setState({teams, myTeamRank: resp.data.position});
         })
         .catch(err=> {
-            if(err.response.status===401) {
+            if(err.response && err.response.status===401) {
                 window.location='/login'
             }
             console.log(err);
