@@ -1,0 +1,66 @@
+.leaderboard-section {
+    padding: 0 0 1rem 2rem;
+}
+
+.heading {
+    color: #FE5151;
+    font-size: 2rem;
+}
+.leaderboard-section ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.leaderboard-list {
+    margin-top: 2rem;
+}
+
+.leaderboard-list>table {
+    width: 100%;
+    border: none;
+}
+
+.leaderboard-list>table tr {
+    
+}
+
+.leaderboard-list>table td {
+    color: #FE5151;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.leaderboard-list>table tr {
+    background-color: #fff;
+}
+
+.leaderboard-list>table tr:hover {
+    background-color: rgba(254, 81, 81, .25);
+    cursor: pointer;
+}
+
+.leaderboard-list>table tr:first-child {
+    /* background-color: rgba(254, 81, 81, .25); */
+}
+
+.leaderboard-list>table tr:first-child:hover {
+    /* background-color: #fff; */
+}
+
+.leaderboard-list>table tr:hover {
+    opacity: .8;
+}
+
+@media only screen and (max-width: 1200px) {
+    .leaderboard-list>table td {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .leaderboard-list>table td {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,135 @@
+.landing-section {
+    /* background: url('../../images/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; */
+    /* background-position: center; */
+}
+.landing-section p {
+    font-size: 1.2rem;
+}
+
+.featured-content {
+    min-height: 100vh;
+}
+
+.landing-content {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+.landing-content>div:first-child {
+    margin-top: 5rem;
+}
+.landing-item {
+    margin-top: 3rem;
+}
+.landing-item h1{
+    color: #FE5151;
+    text-align: center;
+    font-size: 2.4rem;
+}
+.landing-item>p {
+    /* text-align: justify; */
+    text-align: left;
+    text-align: center;
+}
+
+.landing-item ol {
+    counter-reset: item;
+    padding: 0;
+}
+.landing-item li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: #FE5151;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.landing-item li {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1.2rem;
+
+    /* font-size: 16px; */
+}
+
+#rules p {
+    text-align: left;
+}
+.collapsible-container {
+    border: 1px solid #FE5151;
+    margin-bottom: 2px;
+    box-shadow: none !important;
+}
+.collapsible-container div:first-child {
+    background-color: #FE5151;
+    color: #fff;
+    padding: 0 10px;
+    /* min-height: 20px; */
+    /* height: 30px; */
+    /* display: flex; */
+    /* align-items: center; */
+}
+.collapsible-container div:first-child>div {
+    margin: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0;
+}
+.collapsible-container div:first-child>div>img {
+    height: 24px;
+    width: 24px;
+}
+.collapsible-container div:first-child + div div {
+    background-color: #fff;
+    color: #303030;
+}
+
+@media only screen and (max-width: 1000px) {
+    .landing-section p, .landing-section li {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .landing-content {
+        width: 95%;
+    }
+    .landing-content>div:first-child {
+        margin-top: 2rem;
+    }
+    .landing-item p {
+        text-align: justify;
+    }
+    .collapsible-container div:first-child>div>p {
+        text-align: left;
+        margin: 10px;
+    }
+    .collapsible-container div:first-child {
+        padding: 0 10px;
+    }
+    .landing-item h1 {
+        font-size: 1.5rem;
+    }
+    .landing-item h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .collapsible-container div:first-child>div>img {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .landing-content {
+        width: 92%;
+    }
+    .collapsible-container div:first-child {
+        padding: 0 5px;
+    }
+}

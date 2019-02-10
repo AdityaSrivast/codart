@@ -1,0 +1,43 @@
+.profile-section {
+    background-color: #FE5151;
+    color: #fff;
+    padding: 2rem 1.5rem;
+    height: 100% !important;
+}
+
+.profile-section h1:hover, .profile-section h2:hover, .profile-section h3:hover, .profile-section h4:hover {
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.submit-btn-container button {
+    background-color: #fff;
+    color: #FE5151;
+    text-transform: none;
+    padding: 10px 1rem;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: 'Poppins' ,sans-serif !important;
+}
+
+.submit-btn-container a {
+    text-decoration: none;
+}
+
+.submit-btn-container button:hover {
+    background-color: #fff;
+    opacity: .9;
+    transition: .5s;
+}
+
+@media only screen and (max-width: 730px) {
+    .hide-arrow {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 655px) {
+    .profile-section {
+        display: none;
+    }
+}
