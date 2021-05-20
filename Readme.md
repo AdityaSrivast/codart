@@ -1,4 +1,8 @@
 # Electron Client for ACM-VIT Codart'19
+Codart is ACM-VIT's annual flagship Competitive Coding event, where participants are assigned questions on the basis of the score of dart game.
+<blockquote>
+The submissions are uploaded and the results are shown on our client application, along with leaderboard, etc. similar to any other online judge platform.
+</blockquote>
 
 ## Application Screenshots
 <div float="left">
@@ -19,4 +23,3 @@
 ## Contributors
 - [Aditya Srivastava](https://github.com/adityasrivast)
 - [Shubham Awasthi](https://github.com/awasthishubh)
-
