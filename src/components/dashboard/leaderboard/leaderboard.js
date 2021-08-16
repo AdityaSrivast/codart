@@ -65,6 +65,7 @@ class Leaderboard extends Component {
         let config = {
             headers : {'Content-Type' : 'application/json','Authorization':'Bearer '+cookie},
         };
+        console.log('asasdas',BASE_URL);
         axios.get(`${BASE_URL}/leaderboard`, config)
         .then (resp => { 
             let teams = resp.data.result;
@@ -77,7 +78,7 @@ class Leaderboard extends Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let {teams, profile, myTeamRank} = this.state;
         let topCard = [], leaderList=[], team;
 

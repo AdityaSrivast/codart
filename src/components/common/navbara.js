@@ -26,15 +26,10 @@ class Navbara extends Component {
                         </div>
                     </div>
                     <div className="nav-btn-container">
-                        {!Cookie.getCookie('token') ? 
-                        <div onClick={this.handleHref('login')}>
-                            <Button>Login</Button>
-                        </div>:
-                        //mount dashboard; by default leaderboard will be displayed on dashboard
+                        {/* mount dashboard; by default leaderboard will be displayed on dashboard */}
                         <div onClick={this.handleHref('dashboard')}>
                             <Button>Leaderboard</Button>
                         </div>
-                        }
                     </div>
                 </div>
             </div>

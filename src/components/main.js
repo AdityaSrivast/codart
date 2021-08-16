@@ -3,6 +3,8 @@ import Landing from './landing/landing';
 import Login from './login/login';
 import Dashboard from './dashboard/';
 import Navbar from './common/navbar';
+// const electron = window.require('electron');
+// const session = electron.session;
 
 class Main extends Component {
     constructor() {
@@ -20,6 +22,8 @@ class Main extends Component {
         let {component} = this.state;
         // process.env.TOKEN = 'asd';
         // console.log(process.env.TOKEN);
+        // console.log(electron);
+        // console.log(electron.ipcRenderer);
         let toMount;
         switch (component) {
             case 'landing':

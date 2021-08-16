@@ -27,18 +27,18 @@ class Login extends Component {
         const { teamname, password } = this.state;
         let data = {team: teamname, passwd: password};
         console.log(data);
-        axios.post(`${BASE_URL}/login`, data)
-        .then(resp=> {
-            if(resp.data) {
-                data = resp.data;
-                let token = data.token;
-                // console.log(data,token);
-                Cookie.setCookie('token', token);
-                this.setState({openSnackbar: true,
-                    msgSnackbar: `Welcome team ${teamname}. Logging in...`,
-                    typeSnackbar: 'success',
-                    loading: false
-                });
+        // axios.post(`${BASE_URL}/login`, data)
+        // .then(resp=> {
+        //     if(resp.data) {
+        //         data = resp.data;
+        //         let token = data.token;
+        //         // console.log(data,token);
+        //         Cookie.setCookie('token', token);
+        //         this.setState({openSnackbar: true,
+        //             msgSnackbar: `Welcome team ${teamname}. Logging in...`,
+        //             typeSnackbar: 'success',
+        //             loading: false
+        //         });
                 setTimeout(() => {
 					// this.props.history.push('/leaderboard');
                     // },
@@ -46,27 +46,27 @@ class Login extends Component {
                     },
                 3000);
             }
-            else {
-                this.setState({openSnackbar: true,
-                    msgSnackbar: `The teamname or password is invalid. Please try again`,
-                    typeSnackbar: 'error',
-                    loading: false,
-                    teamname: '',
-                    password: ''
-                });
-            }
-        })
-        .catch(err=> {
-            console.log(err);
-            this.setState({openSnackbar: true,
-                msgSnackbar: `The teamname or password is invalid.  Please try again`,
-                typeSnackbar: 'error',
-                loading: false,
-                teamname: '',
-                password: ''
-            });
-        });
-    }
+        // //     else {
+        // //         this.setState({openSnackbar: true,
+        // //             msgSnackbar: `The teamname or password is invalid. Please try again`,
+        // //             typeSnackbar: 'error',
+        // //             loading: false,
+        // //             teamname: '',
+        // //             password: ''
+        // //         });
+        // //     }
+        // })
+        // .catch(err=> {
+        //     console.log(err);
+        //     this.setState({openSnackbar: true,
+        //         msgSnackbar: `The teamname or password is invalid.  Please try again`,
+        //         typeSnackbar: 'error',
+        //         loading: false,
+        //         teamname: '',
+        //         password: ''
+        //     });
+        // });
+//     }
 
     handleChange = name => event => {
         this.setState({
