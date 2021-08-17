@@ -18,8 +18,8 @@ The submissions are uploaded and the results are shown on our client application
 - Step 2: Change directory to the local clone using `cd codart`
 - Step 3: Install all the dependencies using `npm install`
 - Step 4: To view the application on your computer, run `npm start`
-- Step 5: Build the desktop application using `npm run package-{linux/mac/win}` depending on your OS.<br/>
-Note: This step might take upto 30-60 mins, depending on your system
+- Step 5: Build the desktop application using `npm run build`.
+Note: This step might take few mins, depending on your system
 - Step 6: Your application files will get created in `/dist` folder
 
 ## Contributors
