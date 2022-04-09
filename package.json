@@ -12,7 +12,7 @@
     "cross-env": "5.2.0",
     "electron-is-dev": "1.0.1",
     "electron-json-storage": "4.1.6",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "react": "16.7.0",
     "react-dom": "16.7.0",
 		"react-router-dom": "5.2.0",
