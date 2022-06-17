@@ -98,7 +98,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "electron": "4.0.4",
+    "electron": "15.5.5",
     "electron-builder": "20.38.5",
 		"electron-packager": "13.1.1"
   },
